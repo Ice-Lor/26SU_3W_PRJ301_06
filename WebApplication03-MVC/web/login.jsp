@@ -13,7 +13,7 @@
     </head>
     <body>
         <h4>Login page</h4>
-        <form action="Controller" method="POST"  >
+        <form action="LoginController" method="POST"  >
             <table>
                 <tr>
                     <td>Username</td>
@@ -28,5 +28,14 @@
                 </tr>
             </table>
         </form>    
+        
+        <%
+            Object errorMessage = request.getAttribute("errorMessage");
+        %>
+        
+        <span style="color: red">
+            <%= errorMessage!=null? errorMessage.toString() : "" %>
+        </span>
+        
     </body>
 </html>
