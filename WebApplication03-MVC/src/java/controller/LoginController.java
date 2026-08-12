@@ -26,14 +26,14 @@ public class LoginController extends HttpServlet {
         userDAO = new UserDAO();
     }
 
-    public boolean checkLogin(String username, String password) {
+    public UserDTO checkLogin(String username, String password) {
         UserDTO user = userDAO.searchByID(username);
 
-        if (user == null) {
-            return false;
+        if (user == null || !user.getPassword().equals(password)) {
+            return null;
         }
 
-        return user.getPassword().equals(password);
+        return user;
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -43,15 +43,16 @@ public class LoginController extends HttpServlet {
         String username = request.getParameter("txtUsername").trim();
         String password = request.getParameter("txtPassword").trim();
 
-        boolean loginSuccess = checkLogin(username, password);
-
-        UserDTO user = null;
+        UserDTO user = checkLogin(username, password);
         String url = "login.jsp";
-        if (loginSuccess) {
-            url = "welcome.jsp";
-            user = userDAO.searchByID(username);
-            // setAttribute la ham de gan du lieu
-            request.setAttribute("loggedUser", user);
+        if (user != null) {
+            if (user.isStatus()) { // status is true
+                url = "welcome.jsp";
+                request.setAttribute("loggedUser", user);
+            } else { // status is false
+                url = "error.jsp";
+                request.setAttribute("errorMessage", "Your account is locked!");
+            }
         } else {
             request.setAttribute("errorMessage", "Invalid username or password!");
             url = "login.jsp";
