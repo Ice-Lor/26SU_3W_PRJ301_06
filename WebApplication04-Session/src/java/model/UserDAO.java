@@ -17,9 +17,9 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
     static {
         fakeDB.add(new UserDTO("admin", "1", "Admin", "ADM", true));
-        fakeDB.add(new UserDTO("U002", "abcdef", "Tran Thi Binh", "USR", true));
-        fakeDB.add(new UserDTO("U003", "tung123", "Le Nhat Tung", "MNG", true));
-        fakeDB.add(new UserDTO("U004", "pass789", "Hoang Van Khoe", "USR", false));
+        fakeDB.add(new UserDTO("U2", "1", "Tran Thi Binh", "USR", true));
+        fakeDB.add(new UserDTO("U3", "1", "Le Nhat Tung", "MNG", true));
+        fakeDB.add(new UserDTO("U4", "1", "Hoang Van Khoe", "USR", false));
     }
 
     @Override
