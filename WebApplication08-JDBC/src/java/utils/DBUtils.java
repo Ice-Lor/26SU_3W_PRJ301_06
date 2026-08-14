@@ -7,12 +7,14 @@ package utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Le Nhat Tung
  */
-public class DBUtils {
+public class DbUtils {
 
     // Do not change this code
     private static final String DB_NAME = "PRJ301";
@@ -25,5 +27,15 @@ public class DBUtils {
         String url = "jdbc:sqlserver://localhost:1433;databaseName=" + DB_NAME;
         conn = DriverManager.getConnection(url, DB_USER_NAME, DB_PASSWORD);
         return conn;
+    }
+
+    public static void main(String[] args) {
+        try {
+            System.out.println(getConnection());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DbUtils.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(DbUtils.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
