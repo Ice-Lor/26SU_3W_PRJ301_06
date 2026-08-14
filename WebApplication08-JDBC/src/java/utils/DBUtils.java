@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Le Nhat Tung
  */
-public class DbUtils {
+public class DBUtils {
 
     // Do not change this code
     private static final String DB_NAME = "PRJ301";
@@ -33,9 +33,9 @@ public class DbUtils {
         try {
             System.out.println(getConnection());
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DbUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBUtils.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(DbUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DBUtils.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

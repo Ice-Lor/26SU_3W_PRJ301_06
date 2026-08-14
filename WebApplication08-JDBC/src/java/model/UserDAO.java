@@ -10,7 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import utils.DbUtils;
+import utils.DBUtils;
+
 
 /**
  *
@@ -40,7 +41,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
         try {
             // Step 1: get database connection
-            conn = DbUtils.getConnection();
+            conn = DBUtils.getConnection();
 
             // Step 2: Create Statement Object
             st = conn.createStatement();
@@ -81,7 +82,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
         Statement st = null;
 
         try {
-            conn = DbUtils.getConnection();
+            conn = DBUtils.getConnection();
             st = conn.createStatement();
 
             String sql = "UPDATE [user] SET status = 0 WHERE userID = '" + t.getUserID() + "'";
@@ -113,7 +114,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
         Statement st = null;
 
         try {
-            conn = DbUtils.getConnection();
+            conn = DBUtils.getConnection();
             st = conn.createStatement();
 
             String sql = "UPDATE [user] SET "
@@ -153,7 +154,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
         ResultSet rs = null;
 
         try {
-            conn = DbUtils.getConnection();
+            conn = DBUtils.getConnection();
             st = conn.createStatement();
             String sql = "SELECT * FROM [user]";
             rs = st.executeQuery(sql);
@@ -194,7 +195,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
         ResultSet rs = null;
 
         try {
-            conn = DbUtils.getConnection();
+            conn = DBUtils.getConnection();
             st = conn.createStatement();
 
             String sql = "SELECT * FROM [user] WHERE userID = '" + id + "'";
