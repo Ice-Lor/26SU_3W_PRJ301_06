@@ -7,8 +7,8 @@
 <!-- the Compile on Save feature is turned off for the project. -->
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
-<project name="WebApplication09-JDBC_PreparedStatement" default="default" basedir=".">
-    <description>Builds, tests, and runs the project WebApplication09-JDBC_PreparedStatement.</description>
+<project name="WebApplication10-CRUD_Search" default="default" basedir=".">
+    <description>Builds, tests, and runs the project WebApplication10-CRUD_Search.</description>
     <import file="nbproject/build-impl.xml"/>
     <!--
 

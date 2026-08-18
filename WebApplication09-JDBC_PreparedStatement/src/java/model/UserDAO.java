@@ -57,9 +57,9 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
         try {
             conn = DbUtils.getConnection();
-            String sql = "UPDATE [user] SET status = 0 WHERE userID = ?";
+            String sql = "";
             ps = conn.prepareStatement(sql);
-            ps.setString(1, t.getUserID());
+            ps.setString(0, data);
             
             int rowsAffected = ps.executeUpdate();
             return rowsAffected > 0;
@@ -78,13 +78,10 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
         try {
             conn = DbUtils.getConnection();
-            String sql = "UPDATE [user] SET fullName = ?, password = ?, roleID = ?, status = ? WHERE userID = ?";
+            String sql = "";
             ps = conn.prepareStatement(sql);
-            ps.setNString(1, t.getFullName());
-            ps.setString(2, t.getPassword());
-            ps.setString(3, t.getRoleID());
-            ps.setInt(4, t.isStatus() ? 1 : 0);
-            ps.setString(5, t.getUserID());
+            ps.setNString(1, data);
+            ps.setString(2, data);
 
             int rowsAffected = ps.executeUpdate();
             return rowsAffected > 0;
@@ -127,7 +124,7 @@ public class UserDAO implements IDAO<UserDTO, String> {
 
         try {
             conn = DbUtils.getConnection();
-            String sql = "SELECT * FROM [user] WHERE userID = ?";
+            String sql = "SELECT * FROM ... WHERE ... = ?";
             ps = conn.prepareStatement(sql);
             ps.setString(1, id);
             rs = ps.executeQuery();
