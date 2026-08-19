@@ -37,23 +37,23 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <c:forEach var="i" items="${List}">
-                    <tr>
-                        <td>${i.id}</td>
-                        <td>${i.name}</td>
-                        <td>${i.description}</td>
-                        <td>${i.price}</td>
-                        <td>${i.quantity}</td>
-                        <td>${i.image}</td>
-                        <td>${i.status}</td>
-                        <td>${i.createdAt}</td>
-                        <td><a href="UpdateController?Id=${i.ID}">Update</a></td>
-                        <td><a href="DeleteController?Id=${i.ID}">Delete</a></td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </c:if>
+                <tbody>
+                    <c:forEach var="p" items="${productList}">
+                        <tr>
+                            <td>${p.productID}</td>
+                            <td>${p.productName}</td>
+                            <td>${p.description}</td>
+                            <td>${p.price}</td>
+                            <td>${p.quantity}</td>
+                            <td>${p.image}</td>
+                            <td>${p.status}</td>
+                            <td>${p.createdAt}</td>
+                            <td><a href="UpdateProductController?productId=${p.productID}&txtKeywords=${txtKeywords}">Update</a></td>
+                            <td><a href="DeleteProductController?productId=${p.productID}&txtKeywords=${txtKeywords}" onclick="return confirm('Are you sure you want to delete this Product?')">Delete</a></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </c:if>
 
         <c:if test="${empty List}">
             <tr>
