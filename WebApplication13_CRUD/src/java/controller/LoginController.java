@@ -19,38 +19,38 @@ import model.UserDTO;
  * @author Le Nhat Tung
  */
 public class LoginController extends HttpServlet {
-
+    
     private UserDAO userDAO;
-
+    
     @Override
     public void init() throws ServletException {
         userDAO = new UserDAO();
     }
-
+    
     public UserDTO checkLogin(String username, String password) {
         UserDTO user = userDAO.searchByID(username);
-
+        
         if (user == null || !user.getPassword().equals(password)) {
             return null;
         }
-
+        
         return user;
     }
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         // De lay du lieu su dung request.getParameter
         String username = request.getParameter("txtUsername").trim();
         String password = request.getParameter("txtPassword").trim();
-
+        
         UserDTO user = checkLogin(username, password);
         String url = "login.jsp";
         if (user != null) {
             if (user.isStatus()) { // status is true
                 url = "welcome.jsp";
                 
-                HttpSession session = request.getSession();              
+                HttpSession session = request.getSession();                
                 session.setAttribute("loggedUser", user);
                 //session.setMaxInactiveInterval(15);
                 

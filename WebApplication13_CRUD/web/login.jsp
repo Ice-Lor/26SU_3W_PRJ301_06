@@ -23,7 +23,6 @@ Author     : Le Nhat Tung
     <h4>Login page</h4>
 
     <form action="MainController" method="POST">
-        <input type="hidden" name="action" value="login"/>
 
         <table>
             <tr>
@@ -46,7 +45,7 @@ Author     : Le Nhat Tung
 
             <tr>
                 <td colspan="2">
-                    <input type="submit" value="Login"/>
+                    <input type="submit" name="action" value="Login"/>
                 </td>
             </tr>
         </table>
@@ -57,6 +56,13 @@ Author     : Le Nhat Tung
             ${errorMessage}
         </span>
     </c:if>
-
+    <form action="MainController" method="POST">
+        UserID:<input type="text" name="userID" value="param.userID" required="">
+        Password:<input type="password" name="password" required="">
+        <input type="submit" name="action" value="Login">
+    </form>
+    <c:if test="not">
+        <p style="color: red"><c:out value="requestScope.ERROR_MESSAGE"/></p>
+    </c:if>{Cursor}
 </body>
 </html>

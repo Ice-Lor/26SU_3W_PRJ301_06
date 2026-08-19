@@ -1,11 +1,16 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- 
+    Document   : search
+    Created on : Aug 19, 2026, 1:48:57 AM
+    Author     : admin
+--%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Search Product</title>
+        <title>JSP Page</title>
     </head>
     <body>
     <!-- Cach 1 -->
@@ -20,8 +25,8 @@
         <input type="submit" name="action" value="Search"/>
     </form>
 
-    <table border="1">
-        <c:if test="${not empty List}">
+    <table>
+        <c:if test="${not empty LIST}">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -38,27 +43,27 @@
             </thead>
 
             <tbody>
-                <c:forEach var="i" items="${List}">
+                <c:forEach var="i" items="${LIST}">
                     <tr>
-                        <td>${i.id}</td>
-                        <td>${i.name}</td>
+                        <td>${i.productID}</td>
+                        <td>${i.productName}</td>
                         <td>${i.description}</td>
                         <td>${i.price}</td>
                         <td>${i.quantity}</td>
                         <td>${i.image}</td>
                         <td>${i.status}</td>
                         <td>${i.createdAt}</td>
-                        <td><a href="UpdateController?Id=${i.ID}">Update</a></td>
-                        <td><a href="DeleteController?Id=${i.ID}">Delete</a></td>
+                        <td><a href="UpdateController?productID=${i.productID}">Update</a></td>
+                        <td><a href="DeleteController?productID=${i.productID}">Delete</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </c:if>
 
-        <c:if test="${empty List}">
+        <c:if test="${empty LIST}">
             <tr>
                 <td colspan="10">
-                    No products found matching your search!
+                    <c:out value="${ERROR_MESSAGE}"/>
                 </td>
             </tr>
         </c:if>
