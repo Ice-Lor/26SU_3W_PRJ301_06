@@ -40,9 +40,13 @@
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/AddProductController</url-pattern>
     </filter-mapping>
-     <filter-mapping>
+    <filter-mapping>
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/UpdateProductController</url-pattern>
+    </filter-mapping>
+     <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/DeleteProductController</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -68,6 +72,10 @@
         <servlet-name>AddProductController</servlet-name>
         <servlet-class>controller.AddProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteProductController</servlet-name>
+        <servlet-class>controller.DeleteProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -91,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>AddProductController</servlet-name>
         <url-pattern>/AddProductController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductController</servlet-name>
+        <url-pattern>/DeleteProductController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

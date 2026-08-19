@@ -74,6 +74,8 @@ public class UpdateProductController extends HttpServlet {
 
         // 6. Đưa product sang product_form.jsp
         request.setAttribute("PRODUCT", product);
+        
+        request.setAttribute("txtKeywords", request.getParameter("txtKeywords"));
 
         // 7. Hiển thị form
         request.getRequestDispatcher("product_form.jsp")
@@ -326,12 +328,8 @@ public class UpdateProductController extends HttpServlet {
         // =================================================
 
         if (result) {
-
-            response.sendRedirect(
-                    request.getContextPath()
-                    + "/search.jsp"
-            );
-
+            System.out.println(request.getParameter("txtKeywords"));
+            request.getRequestDispatcher("/SearchProductController").forward(request, response);
         } else {
 
             // =================================================

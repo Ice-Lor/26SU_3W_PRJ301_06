@@ -176,9 +176,13 @@
                 </c:if>
             </p>
 
+            
+            
 
             <%-- ================= BUTTON ================= --%>
 
+            <input type="hidden" name="txtKeywords" value="${txtKeywords}"/>
+            
             <button type="submit">
                 ${isUpdate ? 'Update' : 'Add'}
             </button>

@@ -51,8 +51,8 @@
                             <td>${p.image}</td>
                             <td>${p.status}</td>
                             <td>${p.createdAt}</td>
-                            <td><a href="UpdateProductController?productId=${p.productID}">Update</a></td>
-                            <td><a href="DelereProductController?productId=${p.productID}">Delete</a></td>
+                            <td><a href="UpdateProductController?productId=${p.productID}&txtKeywords=${txtKeywords}">Update</a></td>
+                            <td><a href="DeleteProductController?productId=${p.productID}&txtKeywords=${txtKeywords}" onclick="return confirm('Are you sure you want to delete this Product?')">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
